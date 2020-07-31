@@ -5,6 +5,7 @@ pipeline {
             stage('scm checkout'){
                   echo "pulling changes from the branching ${params.branching}"
                   git url:'https://github.com/basavarajbhavi/shopping-cart.git', branching:"${params.branching}"
+            }
   stages {
         
     stage('Git') {
