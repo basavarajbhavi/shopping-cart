@@ -4,12 +4,12 @@ pipeline {
       agent any{
             
   stages {
-        node{
+        
             stage('Scm checkout'){
                   echo "pulling changes from the branching ${params.branching}"
                   git url:'https://github.com/basavarajbhavi/shopping-cart.git', branching:"${params.branching}"
             }
-            }
+            
         
     stage('Git') {
       steps {
