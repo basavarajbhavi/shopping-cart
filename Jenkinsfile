@@ -1,7 +1,10 @@
 pipeline {
-      properties([parameters([choice(choices: ['master', 'dev', 'release'], description: 'branching and merging strategy', name: 'branches')]), pipelineTriggers([githubPush()])])
+      properties([parameters([choice(choices: ['master', 'dev', 'release'], description: 'branching and merging strategy', name: 'branching')])])
       
-  agent any
+      agent any{
+            stage('scm checkout'){
+                  echo "pulling changes from the branching ${params.branching}"
+                  git url:'https://github.com/basavarajbhavi/shopping-cart.git', branching:"${params.branching}"
   stages {
         
     stage('Git') {
