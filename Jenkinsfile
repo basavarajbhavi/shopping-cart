@@ -1,7 +1,7 @@
 pipeline {
       properties([parameters([choice(choices: ['master', 'dev', 'release'], description: 'branching and merging strategy', name: 'branching')])])
       
-      agent any{
+      node{
                    
   stages {
         
