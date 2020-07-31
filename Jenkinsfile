@@ -10,14 +10,6 @@ pipeline {
                   git url:'https://github.com/basavarajbhavi/shopping-cart.git', branching:"${params.branching}"
             }
             
-        
-    stage('Git') {
-      steps {
-   
-           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/basavarajbhavi/shopping-cart.git']]])
-        
-             }
-     }
   }
 }
       }
