@@ -1,5 +1,5 @@
 pipeline {
-       properties([parameters([choice(choices: ['master', 'dev', 'release'], description: 'branching and merging strategy', name: 'branches')]), pipelineTriggers([githubPush()])])
+      
   agent any
   stages {
         
