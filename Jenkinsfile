@@ -9,6 +9,18 @@ pipeline {
                   echo "pulling changes from the branching ${params.branching}"
                   git url:'https://github.com/basavarajbhavi/shopping-cart.git', branching:"${params.branching}"
             }
-            
+ agent any{  
+       
+stage('Git') {
+      steps {
+   
+           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/basavarajbhavi/shopping-cart.git']]])
+        
+             }
+     }
+
+
   }
+}
+      }
 }
