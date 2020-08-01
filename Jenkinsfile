@@ -1,11 +1,14 @@
 pipeline {
-      properties([parameters([choice(choices: ['master', 'dev', 'release'], description: 'branching and merging strategy', name: 'branching')])])
+      properties([parameters([choice(choices: 'master\ndev\nrelease', description: '', name: 'branch')]), pipelineTriggers([githubPush()])])
+      
  agent any 
 stages {       
       stage('Git') {
       steps {
+            echo "pulling the changes from the branch ${params.branch}"
+            git url: 'https://github.com/basavarajbhavi/shopping-cart.git' , branch:"${params.branch}"
    
-           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/basavarajbhavi/shopping-cart.git']]])
+           
            }
                    }
        }                  
