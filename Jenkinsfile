@@ -6,6 +6,7 @@ properties([parameters([choice(choices: 'master\ndev\nrelease', description: '',
           
           echo "pulling the changes from the branch ${params.branch}"
           git url: 'https://github.com/basavarajbhavi/shopping-cart.git' , branch:"${params.branch}"
+          ec2 cloud: 'devops', template: ''
            }
        }                  
       
