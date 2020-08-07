@@ -11,7 +11,10 @@ agent any
       steps{
         echo "Building Project"
         sh 'npm install'
+        sh 'npm start'
         sh 'npm run build'
+        sh 'npm i ajv'
+        sh 'npm install'
       }
     }
     
