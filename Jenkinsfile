@@ -8,8 +8,6 @@ properties([parameters([choice(choices: 'master\ndev\nrelease', description: '',
           git url: 'https://github.com/basavarajbhavi/shopping-cart.git' , branch:"${params.branch}"
          
            }
-            stage('instance') {
-                   ec2 cloud: 'devops', template: ''
-            }
+           
        }                  
       
