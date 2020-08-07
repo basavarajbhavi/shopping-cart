@@ -6,21 +6,6 @@ pipeline {
   }
   agent any
   stages{
-    stage ('Build') {
-      steps{
-        echo "Building Project"
-        sh 'npm install'
-        sh 'npm start'
-        sh 'npm run build'
-        
-      }
-    }
-    stage ('Archive') {
-      steps{
-        echo "Archiving Project"
-        archiveArtifacts artifacts: 'build/*.js'
-      }
-    }
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
