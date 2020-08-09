@@ -1,4 +1,4 @@
-arameters:
+Parameters:
   ELBVPC:
     Type: AWS::EC2::VPC::Id
     Description: Select the VPC for ELB Target Group.
