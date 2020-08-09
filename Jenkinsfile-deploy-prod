@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  stages{  
+      stage('Deploy to Prod1') {
+                steps {
+                  echo "Deploying to Prod1"
+                  sshagent(['ssh-key']) {
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.204.246.113 docker rm -f petclinic || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.204.246.113 docker run -d --name=petclinic -p 3000:80 prabhavagrawal/petclinic"
+                  }
+                }
+      }
+      stage('Deploy to Prod2') {
+                steps {
+                  echo "Deploying to Prod2"
+                  sshagent(['ssh-key']) {
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@534.227.160.93 docker rm -f petclinic || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@34.227.160.93 docker run -d --name=petclinic -p 3000:80 prabhavagrawal/petclinic"
+                  }
+                }
+      }         
+  }
+}
