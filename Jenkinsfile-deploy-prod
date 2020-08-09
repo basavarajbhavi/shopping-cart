@@ -5,8 +5,8 @@ pipeline {
                 steps {
                   echo "Deploying to Prod1"
                   sshagent(['ssh-key']) {
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.204.246.113 docker rm -f chair-cart || true"
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.204.246.113 docker run -d --name=chair-cart -p 3000:80 basavarajbhavi/chair-cart"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@3.87.72.166 docker rm -f chair-cart || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@3.87.72.166 docker run -d --name=chair-cart -p 3000:80 basavarajbhavi/chair-cart"
                   }
                 }
       }
@@ -14,8 +14,8 @@ pipeline {
                 steps {
                   echo "Deploying to Prod2"
                   sshagent(['ssh-key']) {
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@34.227.160.93 docker rm -f chair-cart || true"
-                      sh "ssh -o StrictHostKeyChecking=no ec2-user@34.227.160.93 docker run -d --name=chair-cart -p 3000:80 basavarajbhavi/chair-cart"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.88.202.27 docker rm -f chair-cart || true"
+                      sh "ssh -o StrictHostKeyChecking=no ec2-user@54.88.202.27 docker run -d --name=chair-cart -p 3000:80 basavarajbhavi/chair-cart"
                   }
                 }
       }         
