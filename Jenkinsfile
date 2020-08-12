@@ -12,7 +12,7 @@ pipeline {
     stage('git') {
       steps {
         echo 'checkout code from github'
-        git branch: "${params.BRANCH}", url: 'https://github.com/pranshulgupta/shopping-cart.git'
+        git branch: "${params.BRANCH}", url: 'https://github.com/basavarajbhavi/shopping-cart.git'
       }
     }
      stage('install dependendience') {
@@ -52,7 +52,7 @@ pipeline {
       steps{
         echo "Deploying to dev environment"
         sh 'docker rm -f chairshoppingcart || true'
-        sh 'docker run -d --name=chairshoppingcart -p 5000:80 pranshul005/chairshoppingcart'
+        sh 'docker run -d --name=chairshoppingcart -p 5000:80 basavarajbhavi/chairshoppingcart'
         //sh 'npm start'
       }
     }
